@@ -18,6 +18,13 @@ public class Game {
   public void play() {
     playCount++;
     MessageCli.START_ROUND.printMessage(String.valueOf(playCount));
+
+    int fingers = -1;
+    while ((fingers < 0) | (fingers > 5)) {
+      MessageCli.ASK_INPUT.printMessage();
+      String input = Utils.scanner.nextLine();
+      fingers = Integer.parseInt(input);
+    }
   }
 
   public void endGame() {}
