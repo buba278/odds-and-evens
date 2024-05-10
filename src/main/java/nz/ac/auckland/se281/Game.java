@@ -21,6 +21,7 @@ public class Game {
 
     int fingers = -1;
     while ((fingers < 0) | (fingers > 5)) {
+      MessageCli.INVALID_INPUT.printMessage();
       MessageCli.ASK_INPUT.printMessage();
       String input = Utils.scanner.nextLine();
       fingers = Integer.parseInt(input);
