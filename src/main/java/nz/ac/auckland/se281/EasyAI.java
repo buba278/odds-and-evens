@@ -1,10 +1,13 @@
 package nz.ac.auckland.se281;
 
 public class EasyAI implements AI {
-  Strategy strategy;
+  Strategy strategy = new RandomStrategy();
 
   @Override
   public void setStrategy(Strategy strategy) {
-    this.strategy = strategy;
+    // unused for EasyAI
+  }
+  public int play() {
+    return strategy.getAction();
   }
 }

@@ -9,12 +9,14 @@ public class Game {
   // Fields
   int playCount = 0;
   String player = "";
+  AI ai;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
     player = options[0];
     playCount = 0;
+    this.ai = AIFactory.createAI(difficulty);
   }
 
   public void play() {
