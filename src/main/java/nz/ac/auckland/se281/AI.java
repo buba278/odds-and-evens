@@ -1,5 +1,5 @@
 package nz.ac.auckland.se281;
 
 public interface AI {
-  public void setStrategy();
+  public void setStrategy(Strategy strategy);
 }
