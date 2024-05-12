@@ -1,5 +1,8 @@
 package nz.ac.auckland.se281;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -7,11 +10,12 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class Game {
 
   // Fields
-  int playCount = 0;
-  String player = "";
+  private int playCount = 0;
+  private String player = "";
   private final String nameAI = "HAL-9000";
-  AI ai;
-  Choice choice;
+  private AI ai;
+  private Choice choice;
+  private List<Integer> history;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
@@ -20,7 +24,10 @@ public class Game {
     playCount = 0;
     this.ai = AIFactory.createAI(difficulty);
     this.choice = choice;
-  }
+
+    // history to keep track during current game
+    history = new ArrayList<Integer>();
+    }
 
   public void play() {
     playCount++;
@@ -40,10 +47,19 @@ public class Game {
       fingers = Integer.parseInt(input);
     }
 
+    // add finger choice to history
+    if (Utils.isEven(fingers)) {
+      history.add(2);
+    }
+    else {
+      history.add(1);
+    }
+
     // hand print if goes through while loop
     MessageCli.PRINT_INFO_HAND.printMessage(player, String.valueOf(fingers));
     // print ai result
-    int aiHand = ai.play();
+    Choice aiWin = (choice.equals(Choice.EVEN)) ? Choice.ODD : Choice.EVEN;
+    int aiHand = ai.play(aiWin);
     MessageCli.PRINT_INFO_HAND.printMessage(nameAI, String.valueOf(aiHand));
 
     // print the outcome

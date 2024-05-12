@@ -1,5 +1,7 @@
 package nz.ac.auckland.se281;
 
+import nz.ac.auckland.se281.Main.Choice;
+
 public class MediumAI implements AI {
   Strategy strategy;
 
@@ -7,7 +9,7 @@ public class MediumAI implements AI {
   public void setStrategy(Strategy strategy) {
     this.strategy = strategy;
   }
-  public int play() {
-    return strategy.getAction(null);
+  public int play(Choice choice) {
+    return strategy.getAction(choice);
   }
 }
