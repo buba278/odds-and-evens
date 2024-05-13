@@ -9,6 +9,7 @@ public class Game {
   // Fields
   int playCount = 0;
   String player = "";
+  private final String nameAI = "HAL-9000";
   AI ai;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
@@ -39,6 +40,8 @@ public class Game {
 
     // hand print if goes through while loop
     MessageCli.PRINT_INFO_HAND.printMessage(player, String.valueOf(fingers));
+    // print ai result
+    MessageCli.PRINT_INFO_HAND.printMessage(nameAI, String.valueOf(ai.play()));
   }
 
   public void endGame() {}
