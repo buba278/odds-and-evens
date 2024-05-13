@@ -76,5 +76,13 @@ public class Game {
     activeGame = false;
   }
 
-  public void showStats() {}
+  public void showStats() {
+    // if no game is active error message
+    if (!activeGame) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
+    
+  }
 }
