@@ -15,6 +15,7 @@ public class Game {
   private AI ai;
   private Choice choice;
   private List<Integer> history;
+  private boolean activeGame = false;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
@@ -26,6 +27,9 @@ public class Game {
 
     // history to keep track during current game
     history = new ArrayList<Integer>();
+
+    // activate game to track for stats checker
+    activeGame = true;
   }
 
   public void play() {
@@ -68,7 +72,9 @@ public class Game {
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), sumProp, winner);
   }
 
-  public void endGame() {}
+  public void endGame() {
+    activeGame = false;
+  }
 
   public void showStats() {}
 }
