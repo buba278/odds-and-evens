@@ -41,6 +41,11 @@ public class Game {
   }
 
   public void play() {
+    if (!activeGame) {
+      MessageCli.GAME_NOT_STARTED.printMessage();
+      return;
+    }
+
     playCount++;
     MessageCli.START_ROUND.printMessage(String.valueOf(playCount));
 
