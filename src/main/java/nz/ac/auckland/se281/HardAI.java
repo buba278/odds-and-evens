@@ -4,7 +4,9 @@ import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
 public class HardAI implements AI {
-  Strategy strategy = new RandomStrategy();
+  private Strategy strategy = new RandomStrategy();
+  private int lastResult = 0;
+  private int lastAIPlay = 0;
 
   @Override
   public void setStrategy(Strategy strategy) {
@@ -12,10 +14,10 @@ public class HardAI implements AI {
   }
 
   public int play(Choice aiWin, List<Integer> history) {
-    int lastResult = 0; // initialised for no error
-    int lastAIPlay = 0; // irrelevant as overriten after 1 play
     boolean lastWin;
 
+    // get last history human play 
+    // sum  
     lastResult = history.get(history.size() - 1) + lastAIPlay;
 
     if (history.size() > 3) {
@@ -32,8 +34,9 @@ public class HardAI implements AI {
 
       if (!lastWin & (strategy.getClass()).equals(RandomStrategy.class)) {
         setStrategy(new TopStrategy());
+        strategy.importHistory(history);
       }
-      if (!lastWin & (strategy.getClass()).equals(TopStrategy.class)) {
+      else if (!lastWin & (strategy.getClass()).equals(TopStrategy.class)) {
         setStrategy(new RandomStrategy());
       }
     }
