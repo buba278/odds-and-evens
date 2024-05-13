@@ -11,6 +11,7 @@ public class Game {
   String player = "";
   private final String nameAI = "HAL-9000";
   AI ai;
+  Choice choice;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
@@ -18,6 +19,7 @@ public class Game {
     player = options[0];
     playCount = 0;
     this.ai = AIFactory.createAI(difficulty);
+    this.choice = choice;
   }
 
   public void play() {
@@ -41,7 +43,15 @@ public class Game {
     // hand print if goes through while loop
     MessageCli.PRINT_INFO_HAND.printMessage(player, String.valueOf(fingers));
     // print ai result
-    MessageCli.PRINT_INFO_HAND.printMessage(nameAI, String.valueOf(ai.play()));
+    int aiHand = ai.play();
+    MessageCli.PRINT_INFO_HAND.printMessage(nameAI, String.valueOf(aiHand));
+
+    // print the outcome
+    int sum = aiHand + fingers;
+    Choice resultChoice = Utils.isEven(sum) ? Choice.EVEN : Choice.ODD;
+    String sumProp = Utils.isEven(sum) ? "EVEN" : "ODD";
+    String winner = (choice.equals(resultChoice)) ? player : nameAI;
+    MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), sumProp, winner);
   }
 
   public void endGame() {}
