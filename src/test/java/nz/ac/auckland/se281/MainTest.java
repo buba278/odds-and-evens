@@ -785,7 +785,5 @@ public class MainTest {
       super(Main.class);
     }
 
-    @Test
-    public void yourtest() throws Exception {}
   }
 }

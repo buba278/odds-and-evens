@@ -122,9 +122,9 @@ public class Game {
     // HAL-9000 won 0 rounds and lost 1 rounds
 
     // player
-    MessageCli.PRINT_PLAYER_WINS.printMessage(String.valueOf(playerWins), String.valueOf(AIWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(player, String.valueOf(playerWins), String.valueOf(AIWins));
     // ai
-    MessageCli.PRINT_PLAYER_WINS.printMessage(String.valueOf(AIWins), String.valueOf(playerWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(nameAI, String.valueOf(AIWins), String.valueOf(playerWins));
     
   }
 }
