@@ -8,6 +8,6 @@ public class EasyAI implements AI {
     // unused for EasyAI
   }
   public int play() {
-    return strategy.getAction();
+    return strategy.getAction(null);
   }
 }

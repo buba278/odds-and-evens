@@ -8,6 +8,6 @@ public class MediumAI implements AI {
     this.strategy = strategy;
   }
   public int play() {
-    return strategy.getAction();
+    return strategy.getAction(null);
   }
 }
