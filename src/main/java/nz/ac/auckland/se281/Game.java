@@ -2,7 +2,6 @@ package nz.ac.auckland.se281;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import nz.ac.auckland.se281.Main.Choice;
 import nz.ac.auckland.se281.Main.Difficulty;
 
@@ -27,7 +26,7 @@ public class Game {
 
     // history to keep track during current game
     history = new ArrayList<Integer>();
-    }
+  }
 
   public void play() {
     playCount++;
@@ -50,8 +49,7 @@ public class Game {
     // add finger choice to history
     if (Utils.isEven(fingers)) {
       history.add(2);
-    }
-    else {
+    } else {
       history.add(1);
     }
 
@@ -59,7 +57,7 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(player, String.valueOf(fingers));
     // print ai result
     Choice aiWin = (choice.equals(Choice.EVEN)) ? Choice.ODD : Choice.EVEN;
-    int aiHand = ai.play(aiWin);
+    int aiHand = ai.play(aiWin, history);
     MessageCli.PRINT_INFO_HAND.printMessage(nameAI, String.valueOf(aiHand));
 
     // print the outcome
