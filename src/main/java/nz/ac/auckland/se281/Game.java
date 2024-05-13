@@ -89,10 +89,18 @@ public class Game {
   }
 
   public void endGame() {
+    //print stats
     showStats();
     // print winner or tie
-    MessageCli.PRINT_END_GAME.printMessage();
-    MessageCli.PRINT_END_GAME_TIE.printMessage();
+    if (playerWins == AIWins) {
+      MessageCli.PRINT_END_GAME_TIE.printMessage();
+    }
+    else if (playerWins > AIWins) {
+      MessageCli.PRINT_END_GAME.printMessage(player);
+    }
+    else {
+      MessageCli.PRINT_END_GAME.printMessage(nameAI);
+    }
 
     activeGame = false;
   }
@@ -110,7 +118,8 @@ public class Game {
 
     // player
     MessageCli.PRINT_PLAYER_WINS.printMessage(String.valueOf(playerWins), String.valueOf(AIWins));
+    // ai
+    MessageCli.PRINT_PLAYER_WINS.printMessage(String.valueOf(AIWins), String.valueOf(playerWins));
     
-
   }
 }
