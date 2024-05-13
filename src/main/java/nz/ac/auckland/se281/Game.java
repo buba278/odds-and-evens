@@ -1,5 +1,7 @@
 package nz.ac.auckland.se281;
 
+import static nz.ac.auckland.se281.MessageCli.PRINT_END_GAME;
+
 import java.util.ArrayList;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
@@ -16,6 +18,8 @@ public class Game {
   private Choice choice;
   private List<Integer> history;
   private boolean activeGame = false;
+  private int playerWins;
+  private int AIWins;
 
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
@@ -30,6 +34,10 @@ public class Game {
 
     // activate game to track for stats checker
     activeGame = true;
+
+    // player wins and ai wins for stats
+    playerWins = 0;
+    AIWins = 0;
   }
 
   public void play() {
@@ -70,9 +78,22 @@ public class Game {
     String sumProp = Utils.isEven(sum) ? "EVEN" : "ODD";
     String winner = (choice.equals(resultChoice)) ? player : nameAI;
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), sumProp, winner);
+
+    // keep track of stats
+    if (winner.equals(player)) {
+      playerWins++;
+    }
+    else {
+      AIWins++;
+    }
   }
 
   public void endGame() {
+    showStats();
+    // print winner or tie
+    MessageCli.PRINT_END_GAME.printMessage();
+    MessageCli.PRINT_END_GAME_TIE.printMessage();
+
     activeGame = false;
   }
 
@@ -83,6 +104,13 @@ public class Game {
       return;
     }
 
+    // Format
+    // Valerio won 1 rounds and lost 0 rounds
+    // HAL-9000 won 0 rounds and lost 1 rounds
+
+    // player
+    MessageCli.PRINT_PLAYER_WINS.printMessage(String.valueOf(playerWins), String.valueOf(AIWins));
     
+
   }
 }
