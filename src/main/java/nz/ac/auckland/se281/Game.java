@@ -1,7 +1,5 @@
 package nz.ac.auckland.se281;
 
-import static nz.ac.auckland.se281.MessageCli.PRINT_END_GAME;
-
 import java.util.ArrayList;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;

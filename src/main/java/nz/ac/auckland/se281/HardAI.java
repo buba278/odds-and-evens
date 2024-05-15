@@ -4,6 +4,8 @@ import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
 public class HardAI implements AI {
+
+  // Fields
   private Strategy strategy = new RandomStrategy();
   private int lastResult = 0;
   private int lastAIPlay = 0;

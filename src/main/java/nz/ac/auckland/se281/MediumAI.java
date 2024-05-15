@@ -4,7 +4,7 @@ import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
 public class MediumAI implements AI {
-  Strategy strategy = new RandomStrategy();
+  private Strategy strategy = new RandomStrategy();
 
   @Override
   public void setStrategy(Strategy strategy) {
