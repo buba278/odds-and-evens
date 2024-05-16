@@ -3,6 +3,10 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * This interface sets the foundation for bot functionality to play it's turn
+ * and select it's strategy.
+ */
 public interface Bot {
 
   /**

@@ -3,6 +3,10 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/**
+ * This interface implements the base frame for playing strategies for the bot
+ * to follow.
+ */
 public interface Strategy {
   /**
    * Returns the given finger amount that the AI will play.

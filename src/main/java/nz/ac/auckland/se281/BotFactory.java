@@ -2,6 +2,9 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
+/**
+ * This class is a factory for creating bots based on their desired difficulties.
+ */
 public class BotFactory {
   /**
    * This creates instances of different difficulty bots.

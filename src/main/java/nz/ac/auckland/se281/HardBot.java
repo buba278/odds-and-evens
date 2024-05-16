@@ -3,6 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/** This class represents the creation of a bot with the hard difficulty. */
 public class HardBot implements Bot {
 
   // Fields

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/** This class implements the top strategy for bots to act on. */
 public class TopStrategy implements Strategy {
   // pick the most frequent choice's counter
 

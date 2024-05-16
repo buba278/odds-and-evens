@@ -4,6 +4,7 @@ import java.util.List;
 
 import nz.ac.auckland.se281.Main.Choice;
 
+/** This class sets up the random strategy for bots to act on. */
 public class RandomStrategy implements Strategy {
   /**
    * Returns the given finger amount that the AI will play.

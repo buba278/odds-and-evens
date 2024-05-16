@@ -3,6 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
+/** This class implements bot with a medium difficulty. */
 public class MediumBot implements Bot {
   private Strategy strategy = new RandomStrategy();
 
