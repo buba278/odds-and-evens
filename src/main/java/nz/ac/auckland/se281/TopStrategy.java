@@ -14,11 +14,13 @@ public class TopStrategy implements Strategy {
   /**
    * Get the action that the strategy decides on playing.
    * This action is made in amount of fingers it will play.
-   * Top strategy decides fingers based on countering the most frequent human choice.
+   * Top strategy decides fingers based on countering the most frequent human
+   * choice.
    * 
-   * @param aiWin, the current win condition for the AI, in relation to human choice.
+   * @param botWin the current win condition for the AI, in relation to human
+   *               choice.
    */
-  public int getAction(Choice aiWin) {
+  public int getAction(Choice botWin) {
     int odds = 0;
     int evens = 0;
 
@@ -33,18 +35,18 @@ public class TopStrategy implements Strategy {
     if (odds == evens) {
       return Utils.getRandomNumberRange(0, 5);
     } else if (evens > odds) {
-      return (aiWin.equals(Choice.EVEN)) ? Utils.getRandomEvenNumber() : Utils.getRandomOddNumber();
+      return (botWin.equals(Choice.EVEN)) ? Utils.getRandomEvenNumber() : Utils.getRandomOddNumber();
     } else {
-      return (aiWin.equals(Choice.ODD)) ? Utils.getRandomEvenNumber() : Utils.getRandomOddNumber();
+      return (botWin.equals(Choice.ODD)) ? Utils.getRandomEvenNumber() : Utils.getRandomOddNumber();
     }
   }
 
-
   /**
-   * Imports the history into the strategy. 
+   * Imports the history into the strategy.
    * This is to account for the previous human plays when doing the top strategy.
    * 
-   * @param history, the array list accounting for if the player played ODD or EVEN fingers
+   * @param history the array list accounting for if the player played ODD or
+   *                EVEN fingers
    */
   public void importHistory(List<Integer> history) {
     this.history = history;

@@ -14,7 +14,7 @@ public class HardBot implements Bot {
    * This sets the current strategy being used by the HardAI.
    * This will determine how the HardAI will make its decisions.
    * 
-   * @param strategy, the current strategy being used by the ai to play its moves.
+   * @param strategy the current strategy being used by the ai to play its moves.
    */
   @Override
   public void setStrategy(Strategy strategy) {
@@ -22,13 +22,15 @@ public class HardBot implements Bot {
   }
 
   /**
-   * Play the AI's move as in provide the amount of fingers it will play on its turn.
+   * Play the Bot's move as in provide the amount of fingers it will play on its
+   * turn.
    * 
-   * @param aiWin, the win condition for the ai so it can make its decisions
-   * @param history, array list of all the previous moves the human made and its "choice"
+   * @param botWin  the win condition for the ai so it can make its decisions
+   * @param history array list of all the previous moves the human made and its
+   *                "choice"
    * @return int, it will return the given fingers that the ai will play
    */
-  public int play(Choice aiWin, List<Integer> history) {
+  public int play(Choice botWin, List<Integer> history) {
     boolean lastWin;
 
     // get last history human play
@@ -37,9 +39,9 @@ public class HardBot implements Bot {
 
     if (history.size() > 3) {
       strategy.importHistory(history);
-      if (Utils.isEven(lastResult) && aiWin.equals(Choice.EVEN)) {
+      if (Utils.isEven(lastResult) && botWin.equals(Choice.EVEN)) {
         lastWin = true;
-      } else if (Utils.isOdd(lastResult) && aiWin.equals(Choice.ODD)) {
+      } else if (Utils.isOdd(lastResult) && botWin.equals(Choice.ODD)) {
         lastWin = true;
       } else {
         lastWin = false;
@@ -53,7 +55,7 @@ public class HardBot implements Bot {
       }
     }
 
-    lastAIPlay = strategy.getAction(aiWin);
+    lastAIPlay = strategy.getAction(botWin);
     return lastAIPlay;
   }
 }
