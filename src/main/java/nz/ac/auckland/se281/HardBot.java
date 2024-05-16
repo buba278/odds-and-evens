@@ -14,7 +14,7 @@ public class HardBot implements Bot {
   /**
    * This sets the current strategy being used by the HardAI.
    * This will determine how the HardAI will make its decisions.
-   * 
+
    * @param strategy the current strategy being used by the ai to play its moves.
    */
   @Override
@@ -25,7 +25,7 @@ public class HardBot implements Bot {
   /**
    * Play the Bot's move as in provide the amount of fingers it will play on its
    * turn.
-   * 
+
    * @param botWin  the win condition for the ai so it can make its decisions
    * @param history array list of all the previous moves the human made and its
    *                "choice"

@@ -17,7 +17,7 @@ public class TopStrategy implements Strategy {
    * This action is made in amount of fingers it will play.
    * Top strategy decides fingers based on countering the most frequent human
    * choice.
-   * 
+
    * @param botWin the current win condition for the AI, in relation to human
    *               choice.
    */
@@ -45,7 +45,7 @@ public class TopStrategy implements Strategy {
   /**
    * Imports the history into the strategy.
    * This is to account for the previous human plays when doing the top strategy.
-   * 
+
    * @param history the array list accounting for if the player played ODD or
    *                EVEN fingers
    */

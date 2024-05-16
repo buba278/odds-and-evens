@@ -22,7 +22,7 @@ public class Game {
   /**
    * Starts a new round of the game.
    * This will wipe the previous history and player.
-   * 
+
    * @param difficulty the enum describing what difficulty the bot gets made at.
    * @param choice     the given win condition for the player.
    * @param options    pass in the player name.

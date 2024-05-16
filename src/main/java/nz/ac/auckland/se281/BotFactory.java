@@ -8,7 +8,7 @@ import nz.ac.auckland.se281.Main.Difficulty;
 public class BotFactory {
   /**
    * This creates instances of different difficulty bots.
-   * 
+
    * @param difficulty the difficulty at which you want to make a bot for.
    * @return Bot the bot that was created at the given difficulty.
    */
