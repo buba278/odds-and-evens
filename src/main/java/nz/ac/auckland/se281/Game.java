@@ -11,28 +11,28 @@ public class Game {
   // Fields
   private int playCount = 0;
   private String player = "";
-  private final String nameAI = "HAL-9000";
-  private AI ai;
+  private final String botName = "HAL-9000";
+  private Bot bot;
   private Choice choice;
   private List<Integer> history;
   private boolean activeGame = false;
   private int playerWins;
-  private int AIWins;
+  private int botWins;
 
   /**
    * Starts a new round of the game.
    * This will wipe the previous history and player.
    * 
-   * @param difficulty, the enum describing what difficulty the ai gets made at
-   * @param choice,     the given win condition for the player
-   * @param options,    pass in the player name
+   * @param difficulty the enum describing what difficulty the bot gets made at.
+   * @param choice     the given win condition for the player.
+   * @param options    pass in the player name.
    */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
     player = options[0];
     playCount = 0;
-    this.ai = BotFactory.createAI(difficulty);
+    this.bot = BotFactory.createBot(difficulty);
     this.choice = choice;
 
     // history to keep track during current game
@@ -43,7 +43,7 @@ public class Game {
 
     // player wins and ai wins for stats
     playerWins = 0;
-    AIWins = 0;
+    botWins = 0;
   }
 
   /**
@@ -85,21 +85,21 @@ public class Game {
     MessageCli.PRINT_INFO_HAND.printMessage(player, String.valueOf(fingers));
     // print ai result
     Choice aiWin = (choice.equals(Choice.EVEN)) ? Choice.ODD : Choice.EVEN;
-    int aiHand = ai.play(aiWin, history);
-    MessageCli.PRINT_INFO_HAND.printMessage(nameAI, String.valueOf(aiHand));
+    int aiHand = bot.play(aiWin, history);
+    MessageCli.PRINT_INFO_HAND.printMessage(botName, String.valueOf(aiHand));
 
     // print the outcome
     int sum = aiHand + fingers;
     Choice resultChoice = Utils.isEven(sum) ? Choice.EVEN : Choice.ODD;
     String sumProp = Utils.isEven(sum) ? "EVEN" : "ODD";
-    String winner = (choice.equals(resultChoice)) ? player : nameAI;
+    String winner = (choice.equals(resultChoice)) ? player : botName;
     MessageCli.PRINT_OUTCOME_ROUND.printMessage(String.valueOf(sum), sumProp, winner);
 
     // keep track of stats
     if (winner.equals(player)) {
       playerWins++;
     } else {
-      AIWins++;
+      botWins++;
     }
   }
 
@@ -111,12 +111,12 @@ public class Game {
     // print stats
     showStats();
     // print winner or tie
-    if (playerWins == AIWins) {
+    if (playerWins == botWins) {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
-    } else if (playerWins > AIWins) {
+    } else if (playerWins > botWins) {
       MessageCli.PRINT_END_GAME.printMessage(player);
     } else {
-      MessageCli.PRINT_END_GAME.printMessage(nameAI);
+      MessageCli.PRINT_END_GAME.printMessage(botName);
     }
 
     activeGame = false;
@@ -138,9 +138,9 @@ public class Game {
     // HAL-9000 won 0 rounds and lost 1 rounds
 
     // player
-    MessageCli.PRINT_PLAYER_WINS.printMessage(player, String.valueOf(playerWins), String.valueOf(AIWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(player, String.valueOf(playerWins), String.valueOf(botWins));
     // ai
-    MessageCli.PRINT_PLAYER_WINS.printMessage(nameAI, String.valueOf(AIWins), String.valueOf(playerWins));
+    MessageCli.PRINT_PLAYER_WINS.printMessage(botName, String.valueOf(botWins), String.valueOf(playerWins));
 
   }
 }

@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
-public class EasyBot implements AI {
+public class EasyBot implements Bot {
   private Strategy strategy = new RandomStrategy();
 
   /**

@@ -3,7 +3,7 @@ package nz.ac.auckland.se281;
 import java.util.List;
 import nz.ac.auckland.se281.Main.Choice;
 
-public class HardBot implements AI {
+public class HardBot implements Bot {
 
   // Fields
   private Strategy strategy = new RandomStrategy();

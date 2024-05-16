@@ -4,11 +4,12 @@ import nz.ac.auckland.se281.Main.Difficulty;
 
 public class BotFactory {
   /**
-   * This creates instances of different difficulty AIs.
+   * This creates instances of different difficulty bots.
    * 
-   * @param difficulty, the difficulty at which you want to make an AI for.
+   * @param difficulty the difficulty at which you want to make a bot for.
+   * @return Bot the bot that was created at the given difficulty.
    */
-  public static AI createAI(Difficulty difficulty) {
+  public static Bot createBot(Difficulty difficulty) {
     switch (difficulty) {
       case EASY:
         return new EasyBot();
