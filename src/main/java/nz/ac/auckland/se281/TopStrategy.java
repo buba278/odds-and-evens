@@ -11,6 +11,13 @@ public class TopStrategy implements Strategy {
   // Field
   private List<Integer> history = new ArrayList<Integer>();
 
+  /**
+   * Get the action that the strategy decides on playing.
+   * This action is made in amount of fingers it will play.
+   * Top strategy decides fingers based on countering the most frequent human choice.
+   * 
+   * @param aiWin, the current win condition for the AI, in relation to human choice.
+   */
   public int getAction(Choice aiWin) {
     int odds = 0;
     int evens = 0;
@@ -32,6 +39,13 @@ public class TopStrategy implements Strategy {
     }
   }
 
+
+  /**
+   * Imports the history into the strategy. 
+   * This is to account for the previous human plays when doing the top strategy.
+   * 
+   * @param history, the array list accounting for if the player played ODD or EVEN fingers
+   */
   public void importHistory(List<Integer> history) {
     this.history = history;
   }
