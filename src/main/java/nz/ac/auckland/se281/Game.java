@@ -85,23 +85,20 @@ public class Game {
     // keep track of stats
     if (winner.equals(player)) {
       playerWins++;
-    }
-    else {
+    } else {
       AIWins++;
     }
   }
 
   public void endGame() {
-    //print stats
+    // print stats
     showStats();
     // print winner or tie
     if (playerWins == AIWins) {
       MessageCli.PRINT_END_GAME_TIE.printMessage();
-    }
-    else if (playerWins > AIWins) {
+    } else if (playerWins > AIWins) {
       MessageCli.PRINT_END_GAME.printMessage(player);
-    }
-    else {
+    } else {
       MessageCli.PRINT_END_GAME.printMessage(nameAI);
     }
 
@@ -123,6 +120,6 @@ public class Game {
     MessageCli.PRINT_PLAYER_WINS.printMessage(player, String.valueOf(playerWins), String.valueOf(AIWins));
     // ai
     MessageCli.PRINT_PLAYER_WINS.printMessage(nameAI, String.valueOf(AIWins), String.valueOf(playerWins));
-    
+
   }
 }

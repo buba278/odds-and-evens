@@ -10,6 +10,7 @@ public class MediumAI implements AI {
   public void setStrategy(Strategy strategy) {
     this.strategy = strategy;
   }
+
   public int play(Choice choice, List<Integer> history) {
     if (history.size() == 4) { // if it passes the 3rd call + only need to do once
       setStrategy(new TopStrategy());

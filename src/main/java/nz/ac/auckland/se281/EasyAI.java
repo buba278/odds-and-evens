@@ -10,6 +10,7 @@ public class EasyAI implements AI {
   public void setStrategy(Strategy strategy) {
     // unused for EasyAI
   }
+
   public int play(Choice choice, List<Integer> history) {
     return strategy.getAction(choice);
   }

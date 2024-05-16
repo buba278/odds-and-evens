@@ -18,27 +18,24 @@ public class HardAI implements AI {
   public int play(Choice aiWin, List<Integer> history) {
     boolean lastWin;
 
-    // get last history human play 
-    // sum  
+    // get last history human play
+    // sum
     lastResult = history.get(history.size() - 1) + lastAIPlay;
 
     if (history.size() > 3) {
       strategy.importHistory(history);
       if (Utils.isEven(lastResult) && aiWin.equals(Choice.EVEN)) {
         lastWin = true;
-      }
-      else if (Utils.isOdd(lastResult) && aiWin.equals(Choice.ODD)) {
+      } else if (Utils.isOdd(lastResult) && aiWin.equals(Choice.ODD)) {
         lastWin = true;
-      }
-      else {
+      } else {
         lastWin = false;
       }
 
       if (!lastWin & (strategy.getClass()).equals(RandomStrategy.class)) {
         setStrategy(new TopStrategy());
         strategy.importHistory(history);
-      }
-      else if (!lastWin & (strategy.getClass()).equals(TopStrategy.class)) {
+      } else if (!lastWin & (strategy.getClass()).equals(TopStrategy.class)) {
         setStrategy(new RandomStrategy());
       }
     }

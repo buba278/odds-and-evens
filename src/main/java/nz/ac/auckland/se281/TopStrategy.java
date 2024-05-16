@@ -8,7 +8,7 @@ public class TopStrategy implements Strategy {
   // pick the most frequent choice's counter
 
   // Define a history int list where 1 = odd, 2 = even
-  // Field  
+  // Field
   private List<Integer> history = new ArrayList<Integer>();
 
   public int getAction(Choice aiWin) {
