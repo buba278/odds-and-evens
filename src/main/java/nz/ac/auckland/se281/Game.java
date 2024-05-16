@@ -19,6 +19,14 @@ public class Game {
   private int playerWins;
   private int AIWins;
 
+  /**
+   * Starts a new round of the game.
+   * This will wipe the previous history and player.
+   * 
+   * @param difficulty, the enum describing what difficulty the ai gets made at
+   * @param choice,     the given win condition for the player
+   * @param options,    pass in the player name
+   */
   public void newGame(Difficulty difficulty, Choice choice, String[] options) {
     // the first element of options[0]; is the name of the player
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
@@ -38,6 +46,11 @@ public class Game {
     AIWins = 0;
   }
 
+  /**
+   * Plays a round of the started game.
+   * Essentially all of the logic of the game for intefacing with the player.
+   * This method with call terminal inputs for processing.
+   */
   public void play() {
     if (!activeGame) {
       MessageCli.GAME_NOT_STARTED.printMessage();
@@ -90,6 +103,10 @@ public class Game {
     }
   }
 
+  /**
+   * This will end the game.
+   * It will reset all the game dependent parameters.
+   */
   public void endGame() {
     // print stats
     showStats();
@@ -105,6 +122,10 @@ public class Game {
     activeGame = false;
   }
 
+  /**
+   * Extrapolate the stats gathered during playing the game into an output.
+   * This will only work whether a game is currently active.
+   */
   public void showStats() {
     // if no game is active error message
     if (!activeGame) {
