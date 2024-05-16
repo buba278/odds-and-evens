@@ -32,7 +32,7 @@ public class Game {
     MessageCli.WELCOME_PLAYER.printMessage(options[0]);
     player = options[0];
     playCount = 0;
-    this.ai = AIFactory.createAI(difficulty);
+    this.ai = BotFactory.createAI(difficulty);
     this.choice = choice;
 
     // history to keep track during current game

@@ -2,7 +2,7 @@ package nz.ac.auckland.se281;
 
 import nz.ac.auckland.se281.Main.Difficulty;
 
-public class AIFactory {
+public class BotFactory {
   /**
    * This creates instances of different difficulty AIs.
    * 
@@ -11,11 +11,11 @@ public class AIFactory {
   public static AI createAI(Difficulty difficulty) {
     switch (difficulty) {
       case EASY:
-        return new EasyAI();
+        return new EasyBot();
       case MEDIUM:
-        return new MediumAI();
+        return new MediumBot();
       case HARD:
-        return new HardAI();
+        return new HardBot();
       default:
         return null;
     }
