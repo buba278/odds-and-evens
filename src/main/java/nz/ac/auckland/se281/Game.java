@@ -64,14 +64,14 @@ public class Game {
     int fingers = -1;
     MessageCli.ASK_INPUT.printMessage();
     String input = Utils.scanner.nextLine();
-    fingers = Integer.parseInt(input);
+    fingers = Utils.isInteger(input) ? Integer.parseInt(input) : -1;
 
     // check with error
     while ((fingers < 0) | (fingers > 5)) {
       MessageCli.INVALID_INPUT.printMessage();
       MessageCli.ASK_INPUT.printMessage();
       input = Utils.scanner.nextLine();
-      fingers = Integer.parseInt(input);
+      fingers = Utils.isInteger(input) ? Integer.parseInt(input) : -1;
     }
 
     // add finger choice to history
