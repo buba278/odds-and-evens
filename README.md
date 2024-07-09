@@ -14,13 +14,15 @@ The system allows players to:
 
 The system is controlled through a menu of commands, which can be selected by typing the command code and any required arguments. The available commands are:
 
-- `CHOOSE_ODDS_OR_EVENS` [1 argument]    Choose whether to play as odds or evens
-- `SHOW_FINGERS`         [1 argument]    Show a number of fingers (0-5)
-- `PLAY_ROUND`           [no args]       Play a round against the AI
-- `VIEW_SCORE`           [no args]       View the current score
-- `HELP`                 [no args]       Print usage
-- `EXIT`                 [no args]       Exit the application
-
+- `PLAY`            [no args]       Play a round
+- `SHOW_STATS`      [no args]       Show the current statistics
+- `END_GAME`	      [no args]	      End the game
+- `HELP`            [no args]       Print usage
+- `EXIT`            [no args]       Exit the application
+- `NEW_GAME`	      [2 arguments]	  Start a new game
+  - `<DIFFICULTY_LEVEL>`: Choose from EASY, MEDIUM, or HARD
+  - `<ODD_OR_EVEN>`: Specify whether you want to play as ODD or EVEN
+ 
 ## Installation
 
 1. Clone this repository to your local machine:
